@@ -1,155 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML + CSS</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Login con Clave Estática</title>
+    <link rel="stylesheet" href="login.css" />
   </head>
   <body>
-    <!--menu-->
-    <nav class="topheader">
-      <a href="" class="logo">
-        <img height="" width="" src="img/logo_upc_red.png" alt="" />
-      </a>
-
-      <ul class="Menu-Horizontal">
-        <li><a href="">Banca Virtual</a></li>
-        <li>
-          <a href="">Productos</a>
-          <ul class="Menu-Vertical">
-            <li><a href="">Cuentas Depositos</a></li>
-            <li><a href="">Prestamos Credito</a></li>
-            <li><a href="">Tarjetas</a></li>
-            <li><a href="">Servicios Adicionales</a></li>
-          </ul>
-        </li>
-        <li><a href="">Promociones</a></li>
-        <li><a href="">Contactanos</a></li>
-        <li><a href="">Ayuda</a></li>
-      </ul>
-    </nav>
-    <!--SECCION BANCA-->
-  <section class="seccion banco">
-    <div class="div-gral-banca">
-      <div class="div-banca-texto">
-        
-        <h2>Seccion Banca</h2>
-        <p>
-          La banca financiera se refiere a la actividad realizada por 
-          las instituciones que se dedican a la gestión y el intercambio 
-          de dinero, actuando como intermediarios financieros entre los 
-          agentes económicos con excedentes de capital (ahorradores/inversionistas)
-          y aquellos que requieren financiamiento (prestatarios). 
-        </p>
-        <p>
-          La banca es la actividad económica y el conjunto de entidades (bancos) que
-          gestionan dinero, actuando como intermediarios entre quienes ahorran y quienes
-          necesitan financiación para invertir. Su función principal es recibir depósitos,
-          otorgar préstamos y ofrecer una amplia gama de servicios financieros para
-          facilitar la circulación del dinero y estimular el crecimiento económico.
-        </p>
-      </div>
-
-      <div class="div-banca-img">
-          <img height="" width="" src="img/banca.jpg" alt=""/>
-      </div>
-    </div>
-  <section>
-    <!--SECCION PROMOCIONES-->
-    <section class="seccion promo">
-      <div class="div-gral-promo">
-        <div class="div-promo-texto">
-          <h2>Seccion Promociones</h2>
-          <p>
-            Se ofrecen descuentos en restaurantes, tecnología, moda, servicios de delivery y
-            entretenimiento. Por ejemplo, el 20% de descuento en ciertos productos de Lucio Café
-            y Rosatel al usar tarjetas BCP. 
-          </p>
-          <p>
-            Las promociones bancarias incluyen descuentos, ofertas 2x1, cuotas sin intereses
-            y cashback en comercios asociados, así como bonos y tasas preferenciales para nuevos
-            productos. Para acceder a ellas, se deben cumplir los requisitos específicos de cada banco
-            y promocionar por ejemplo en las aplicaciones móviles, indica Scotiabank, Banco Falabella Perú,
-            Interbank y BBVA Perú. 
-          </p>
+    <section class="login-container">
+      <div class="login-box">
+        <h2>Iniciar sesión</h2>
+        <div class="div-bcp-img">
+          <img height="" width="" src="img/banca_por_internet.png" alt="" />
         </div>
-  
-        <div class="div-promo-video">
-          <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/p_RIfyyJJUc?si=eZcR1R1cpsMYKnOu" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    <section>
-      <section class="seccion-formulario">
-        <div class="div-cont-formulario">
-          <h2>Formulario de Registro</h2>
-          <p>Complete todos los campos...</p>
-          <form class="formulario">
-            <!--input text-->
-            <div class="campo">
-              <label for="nombre">Nombres completos</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus nombres"></input>
-              
-            </div>
-            <!--Lista Despegable-->
-            <div class="campo">
-              <label for="nombre">Pais:</label>
-              <select id="pais" name="pais">
-                <option value="">selecione un pais</option>
-                <option value="peru">Peru</option>
-                <option value="argentina">Argentina</option>
-                <option value="brazil">Brazil</option>
-              </select>
-            </div>
-            <!--CheckBox-->
-            <div class="campo">
-              <label>Intereses:</label>
-                  <ul class="lista-checkbox">
-                    <li><label><input type="checkbox" name="intereses" value="a">abcd</label></li>
-                    <li><label><input type="checkbox" name="intereses" value="b">efgh</label></li>
-                    <li><label><input type="checkbox" name="intereses" value="c">ijkl</label></li>
-                    <li><label><input type="checkbox" name="intereses" value="d">mnño</label></li>
-                  </ul>
 
-            </div>
-            <!--Radio-->
-            <div class="campo">
-              <label>Sexo:</label>
-                  <ul class="lista-radio">
-                    <li><label><input type="radio" name="sexo" value="m">Masculino</label></li>
-                    <li><label><input type="radio" name="sexo" value="f">Femenino</label></li>
-            </div>
-            <button type="submit">Enviar</button>
-          </form>
-        </div>  
-      </section>
-      <footer class="footer">
-        <div class="footer-container">
-          <div class="footer-logo">
-            <img src="img/Logo_bcp.png" alt="Logo BCP" width="100" />
+        <form onsubmit="return validarLogin(event);">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Introduce tu email"
+              required
+            />
           </div>
-          <div class="footer-info">
-            <h3>Banco de Crédito del Perú (BCP)</h3>
-            <p>&copy; 2024 BCP. Todos los derechos reservados.</p>
-            <p>
-              Banca por Teléfono: (01) 311-9898 | 
-              Consultas por WhatsApp: 993119898
-            </p>
-            <p>
-              Visita una de nuestras agencias o síguenos en redes sociales.
-            </p>
+          <div class="input-group">
+            <label for="password">Clave de Acceso (ok)</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Introduce la clave secreta"
+              required
+            />
           </div>
-        </div>
-      </footer>
-    </body>
-  </html>
+
+          <button type="submit" class="login-button">Iniciar Sesión</button>
+        </form>
+      </div>
+    </section>
+
+    <script src="login.js"></script>
+  </body>
+</html>
